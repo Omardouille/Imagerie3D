@@ -1,0 +1,17 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: Le répertoire intermédiaire (x64\Debug\) contient des fichiers partagés provenant d'un autre projet (Project.vcxproj). Cela peut entraîner un comportement de nettoyage et de régénération incorrect.
+  Camera.cpp
+c:\users\simps\documents\cours\imagerie3d\projet\project\engine\rendering\camera.cpp(182): warning C4244: '=' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+c:\users\simps\documents\cours\imagerie3d\projet\project\engine\rendering\camera.cpp(183): warning C4244: '=' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+freeglut.lib(freeglutd.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR dÚjÓ dÚfini dans opengl32.lib(OPENGL32.dll)á; seconde dÚfinition ignorÚe
+freeglut.lib(freeglutd.dll) : warning LNK4221: Ce fichier objet ne dÚfinit pas de symboles publics jusqu'ici non dÚfinis. Par consÚquent, il ne sera utilisÚ par aucune opÚration de lien utilisant cette bibliothÞque
+glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR dÚjÓ dÚfini dans opengl32.lib(OPENGL32.dll)á; seconde dÚfinition ignorÚe
+glew32.lib(glew32.dll) : warning LNK4221: Ce fichier objet ne dÚfinit pas de symboles publics jusqu'ici non dÚfinis. Par consÚquent, il ne sera utilisÚ par aucune opÚration de lien utilisant cette bibliothÞque
+  Engine.vcxproj -> C:\Users\simps\Documents\cours\Imagerie3D\Projet\Project\x64\Debug\Engine.lib
