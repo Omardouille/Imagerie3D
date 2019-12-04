@@ -6,7 +6,7 @@ using namespace Rendering;
 Camera::Camera()
 {
 	isMousePressed = false;
-	eyeVector = glm::vec3(0.0f, 0.0f, -10.0f);
+	cameraPos = glm::vec3(0.0f, 0.0f, -10.0f);
 	mousePosition = glm::vec2(0.0f, 0.0f);
 	yaw = -90.f;
 	pitch = 0.0f;
@@ -25,7 +25,7 @@ Camera::~Camera()
 
 void Camera::updateView()
 {
-	/*
+	
 	//roll can be removed from here. because is not actually used in FPS camera3
 	glm::mat4 matRoll = glm::mat4(1.0f);//identity matrix; 
 	glm::mat4 matPitch = glm::mat4(1.0f);//identity matrix
@@ -35,24 +35,24 @@ void Camera::updateView()
 	matRoll = glm::rotate(matRoll, roll, glm::vec3(0.0f, 0.0f, 1.0f));
 	matPitch = glm::rotate(matPitch, pitch, glm::vec3(1.0f, 0.0f, 0.0f));
 	matYaw = glm::rotate(matYaw, yaw, glm::vec3(0.0f, 1.0f, 0.0f));
-
+	std::cout << pitch << std::endl;
 	//order matters
 	glm::mat4 rotate = matRoll * matPitch * matYaw;
 
 	glm::mat4 translate = glm::mat4(1.0f);
-	translate = glm::translate(translate, -eyeVector);
+	translate = glm::translate(translate, -cameraPos);
 
 	viewMatrix = rotate * translate;
 	float test = viewMatrix[0][0];
 	//float test = eyeVector.x;
 	//printf("test : %f \n", test);
-
-	*/
+	
+	
 	//AVEC QUAT
 	/*
 	//FPS camera:  RotationX(pitch) * RotationY(yaw)
-	glm::quat qPitch = glm::angleAxis(pitch, glm::vec3(1, 0, 0));
-	glm::quat qYaw = glm::angleAxis(yaw, glm::vec3(0, 1, 0));
+	glm::quat qPitch = glm::angleAxis(key_pitch, glm::vec3(1, 0, 0));
+	glm::quat qYaw = glm::angleAxis(key_yaw, glm::vec3(0, 1, 0));
 	glm::quat qRoll = glm::angleAxis(roll, glm::vec3(0, 0, 1));
 
 	//For a FPS camera we can omit roll
@@ -61,12 +61,12 @@ void Camera::updateView()
 	glm::mat4 rotate = glm::mat4_cast(orientation);
 
 	glm::mat4 translate = glm::mat4(1.0f);
-	translate = glm::translate(translate, -eyeVector);
+	translate = glm::translate(translate, -cameraPos);
 
 	viewMatrix = rotate * translate;
 	*/
 	//Avec Quat 2
-
+	/*
 	glm::quat key_quat = glm::quat(glm::vec3(key_pitch, key_yaw, key_roll));
 	//reset values
 	key_pitch = key_yaw = key_roll = 0;
@@ -77,10 +77,10 @@ void Camera::updateView()
 	glm::mat4 rotate = glm::mat4_cast(camera_quat);
 
 	glm::mat4 translate = glm::mat4(1.0f);
-	translate = glm::translate(translate, -eyeVector);
+	translate = glm::translate(translate, -cameraPos);
 
 	viewMatrix = rotate * translate;
-	
+	*/
 }
 
 glm::mat4 Camera::getViewMatrix() const
@@ -129,7 +129,7 @@ void Camera::KeyPressed(const unsigned char key)
 
 	const float speed = 0.12f;//how fast we move
 
-	eyeVector += (dz * forward + dx * strafe) * speed;
+	cameraPos += (dz * forward + dx * strafe) * speed;
 
 	//update the view matrix
 	updateView();
@@ -142,20 +142,25 @@ void Camera::MouseMove(int x, int y, int width, int height)
 		return;
 	//always compute delta
 	//mousePosition is the last mouse position
-	/*
-	glm::vec2 mouse_delta = glm::vec2(x, y) - mousePosition;
+	
+	glm::vec2 mouse_delta = mousePosition - glm::vec2(x, y) ;
 
-	const float mouseX_Sensitivity = 0.025f;
-	const float mouseY_Sensitivity = 0.025f;
+	const float mouseX_Sensitivity = 0.0020f;
+	const float mouseY_Sensitivity = 0.0020f;
 	//note that yaw and pitch must be converted to radians.
 	//this is done in UpdateView() by glm::rotate
 	yaw += mouseX_Sensitivity * mouse_delta.x;
 	pitch += mouseY_Sensitivity * mouse_delta.y;
 
+	if (pitch > 1.55334f) //90°
+		pitch = 1.55334f;
+	if (pitch < -1.55334f)
+		pitch = -1.55334f;
+
 	mousePosition = glm::vec2(x, y);
 	updateView();
 
-	*/
+	/*
 	glm::vec2 mouse_delta = mousePosition - glm::vec2(x, y);
 
 	//notice that we reduce the sensitvity
@@ -166,7 +171,7 @@ void Camera::MouseMove(int x, int y, int width, int height)
 	key_pitch = mouseY_Sensitivity * mouse_delta.y;
 
 	mousePosition = glm::vec2(x, y);
-	updateView();
+	updateView();*/
 }
 
 void Camera::MousePressed(int button, int state, int x, int y)

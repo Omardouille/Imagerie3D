@@ -1,11 +1,11 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: Le répertoire intermédiaire (x64\Debug\) contient des fichiers partagés provenant d'un autre projet (Project.vcxproj). Cela peut entraîner un comportement de nettoyage et de régénération incorrect.
   Camera.cpp
-c:\users\simps\documents\cours\imagerie3d\projet\project\engine\rendering\camera.cpp(182): warning C4244: '=' : conversion de 'int' en 'T', perte possible de données
+c:\users\simps\documents\cours\imagerie3d\projet\project\engine\rendering\camera.cpp(187): warning C4244: '=' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-c:\users\simps\documents\cours\imagerie3d\projet\project\engine\rendering\camera.cpp(183): warning C4244: '=' : conversion de 'int' en 'T', perte possible de données
+c:\users\simps\documents\cours\imagerie3d\projet\project\engine\rendering\camera.cpp(188): warning C4244: '=' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float

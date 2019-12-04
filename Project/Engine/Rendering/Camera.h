@@ -20,7 +20,7 @@ namespace Engine {
 
 		private:
 			float roll, pitch, yaw;
-			glm::vec3 eyeVector;
+			glm::vec3 cameraPos;
 
 			glm::mat4 viewMatrix;
 

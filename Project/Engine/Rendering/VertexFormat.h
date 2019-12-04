@@ -2,7 +2,7 @@
 #ifndef  VertexFormat_H_
 #define VertexFormat_H_
 
-#include <glm\glm.hpp>
+#include <glm/glm.hpp>
 namespace Engine {
 	namespace Rendering
 	{
