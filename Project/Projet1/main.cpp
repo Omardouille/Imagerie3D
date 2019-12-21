@@ -2,12 +2,15 @@
 #include <Engine\MEngine.h>
 #include "Cube.h"
 #include <soil/SOIL.h>
-
+#include <stdlib.h>
+#include <time.h>
 
 using namespace Engine;
 
 int main(int argc, char **argv)
 {
+	srand(time(0));
+
 	MEngine* engine = new MEngine();
 	engine->init();
 

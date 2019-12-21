@@ -1,5 +1,6 @@
 #pragma once
 #include "Block.h"
+#include "PerlinNoise.hpp"
 class Chunk
 {
 public:
@@ -7,6 +8,8 @@ public:
 	~Chunk();
 
 	void Update(float dt);
+
+	void generate(int coordX, int coordY, siv::PerlinNoise gen);
 
 	//void Render(OpenGLRenderer* pRenderer);
 
