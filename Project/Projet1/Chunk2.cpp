@@ -14,9 +14,6 @@ Chunk2::~Chunk2()
 
 void Chunk2::create(int taille, MEngine* engine) {
 	this->taille = taille;
-	unsigned int texture = SOIL_load_OGL_texture("Textures\\grass.bmp", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
-	unsigned int texture2 = SOIL_load_OGL_texture("Textures\\side.bmp", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
-	unsigned int texture3 = SOIL_load_OGL_texture("Textures\\dirt.bmp", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
 	std::vector<unsigned int> indices;
 	int k = 0;
 	for (int i = 0; i < taille; i++) {

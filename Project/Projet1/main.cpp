@@ -1,7 +1,7 @@
 #pragma once
 #include <Engine\MEngine.h>
 #include "Cube.h"
-#include <soil/SOIL.h>
+#include <soil/SOIL2.h>
 #include "Chunk2.h"
 
 
@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	engine->init();
 
 	//local shaders
-	engine->getShaderManager()->createProgram("cubeShader",	"Shaders/VertexShader.glsl", "Shaders/FragmentShader.glsl");
+	engine->getShaderManager()->createProgram("cubeShader",	"Shaders\\VertexShader.glsl", "Shaders\\FragmentShader.glsl");
 	unsigned int texture = SOIL_load_OGL_texture("Textures\\grass.bmp", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
 	unsigned int texture2 = SOIL_load_OGL_texture("Textures\\side.bmp", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
 	unsigned int texture3 = SOIL_load_OGL_texture("Textures\\dirt.bmp", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 
 	//engine->getModelsManager()->setModel("cube", cube);
 	//engine->getModelsManager()->setModel("cube2", cube2);
-	//glDisable(GL_CULL_FACE);
+	glDisable(GL_CULL_FACE);
 	engine->run();
 
 	delete engine;

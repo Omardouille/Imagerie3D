@@ -12,6 +12,7 @@ TextureLoader::~TextureLoader()
 
 }
 
+
 unsigned int TextureLoader::loadTexture(const std::string& filename, unsigned int width, unsigned int height)
 {
 
@@ -28,7 +29,7 @@ unsigned int TextureLoader::loadTexture(const std::string& filename, unsigned in
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	//Following commented line is deprecated in OpenGL 3.1 and above.
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	//glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
 	float maxAnisotropy;
 	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAnisotropy);

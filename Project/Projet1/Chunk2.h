@@ -1,7 +1,7 @@
 #pragma once
 #include "Cube2.h"
 #include <Engine/MEngine.h>
-#include <soil/SOIL.h>
+//#include <soil/SOIL.h>
 using namespace Engine;
 class Chunk2 : public Model
 {

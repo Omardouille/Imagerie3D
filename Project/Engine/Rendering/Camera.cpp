@@ -35,7 +35,7 @@ void Camera::updateView()
 	matRoll = glm::rotate(matRoll, roll, glm::vec3(0.0f, 0.0f, 1.0f));
 	matPitch = glm::rotate(matPitch, pitch, glm::vec3(1.0f, 0.0f, 0.0f));
 	matYaw = glm::rotate(matYaw, yaw, glm::vec3(0.0f, 1.0f, 0.0f));
-	std::cout << pitch << std::endl;
+	//std::cout << pitch << std::endl;
 	//order matters
 	glm::mat4 rotate = matRoll * matPitch * matYaw;
 
