@@ -53,6 +53,7 @@ void InitGLUT::init(const Core::WindowInfo& windowInfo,
 
 	//our method to display some info. Needs contextInfo and windowinfo
 	printOpenGLInfo(windowInfo, contextInfo);
+	
 }
 
 //starts the rendering Loop
@@ -70,6 +71,7 @@ void InitGLUT::close()
 
 void InitGLUT::idleCallback(void)
 {
+	//update
 
 	glutPostRedisplay();
 }
@@ -167,4 +169,3 @@ void Engine::Core::Init::InitGLUT::setCamera(Rendering::Camera * cam)
 {
 	camera = cam;
 }
-

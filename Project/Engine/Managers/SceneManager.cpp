@@ -7,14 +7,16 @@ using namespace Managers;
 SceneManager::SceneManager()
 {
 	glEnable(GL_DEPTH_TEST);
-
-	viewMatrix = glm::mat4(1.0f, 0.0f, 0.0f, 0.0f,
+	
+	/*viewMatrix = glm::mat4(1.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, -1.0f, 0.0f,
-		0.0f, 0.0f, 10.0f, 1.0f);
+		0.0f, 0.0f, 10.0f, 1.0f);*/
 
 	m_camera = new Camera();
 	Engine::Core::Init::InitGLUT::setCamera(m_camera);
+	viewMatrix = m_camera->getViewMatrix();
+	m_collision = new Interaction::Collision();
 }
 
 SceneManager::~SceneManager()
@@ -25,6 +27,9 @@ void SceneManager::notifyBeginFrame()
 {
 	modelsManager->update();
 	viewMatrix = m_camera->getViewMatrix();
+	bool c = m_collision->detectCollision(m_camera->getCameraPos(), m_world);
+	m_camera->setCanMove(!c);
+	m_camera->updateView();
 }
 
 void SceneManager::notifyDisplayFrame()
@@ -57,6 +62,11 @@ void SceneManager::notifyReshape(int width,int height,int previous_width,int pre
 Camera * Engine::Managers::SceneManager::getCamera() const
 {
 	return m_camera;
+}
+
+void Engine::Managers::SceneManager::setWorld(std::vector<glm::vec3> w)
+{
+	m_world = w;
 }
 
 void SceneManager::setModelsManager(Managers::ModelsManager*& models_m)

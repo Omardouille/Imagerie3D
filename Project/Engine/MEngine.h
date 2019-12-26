@@ -2,6 +2,7 @@
 #include "Core\Init\InitGLUT.h"
 #include "Managers\SceneManager.h"
 #include "Rendering/Camera.h"
+#include "Interaction/Collision.h"
 
 namespace Engine
 {
@@ -25,11 +26,15 @@ namespace Engine
 
 		TextureLoader* getTextureLoader() const;
 
+		void setWorld(std::vector<glm::vec3>);
+
 	private:
 		Managers::SceneManager* m_scene_manager;
 		Managers::ShaderManager* m_shader_manager;
 		Managers::ModelsManager* m_models_manager;
 
 		TextureLoader* m_texture_loader;
+		std::vector<glm::vec3> world;
+		
 	};
 }

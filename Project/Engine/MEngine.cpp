@@ -46,6 +46,7 @@ bool MEngine::init()
 //Create the loop
 void MEngine::run()
 {
+	m_scene_manager->setWorld(world);
 	Init::InitGLUT::run();
 	
 }
@@ -68,6 +69,11 @@ Managers::ModelsManager* MEngine::getModelsManager() const
 TextureLoader* MEngine::getTextureLoader() const
 {
 	return m_texture_loader;
+}
+
+void Engine::MEngine::setWorld(std::vector<glm::vec3> w)
+{
+	world = w;
 }
 
 MEngine::~MEngine()

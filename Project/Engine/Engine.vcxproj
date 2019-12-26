@@ -92,6 +92,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Users\simps\Documents\cours\Imagerie3D\Projet\Project\Project\Libraries\glew;C:\Users\simps\Documents\cours\Imagerie3D\Projet\Project\Project\Libraries\freeglut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -130,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Interaction\Collision.cpp" />
     <ClCompile Include="Core\Init\InitGLEW.cpp" />
     <ClCompile Include="Core\Init\InitGLUT.cpp" />
     <ClCompile Include="MEngine.cpp" />
@@ -143,6 +145,7 @@
     <ClCompile Include="Rendering\Texture\TextureLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Interaction\Collision.h" />
     <ClInclude Include="Core\Init\ContextInfo.h" />
     <ClInclude Include="Core\Init\FrameBufferInfo.h" />
     <ClInclude Include="Core\Init\IListerner.h" />

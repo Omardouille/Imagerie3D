@@ -22,11 +22,28 @@ int main(int argc, char **argv)
 	int program = engine->getShaderManager()->getShader("cubeShader");
 	Chunk2* chunk = new Chunk2();
 	chunk->setProgram(program);
-	chunk->create(16, engine);
+	chunk->create(16);
 	chunk->setTexture("top", texture);
 	chunk->setTexture("side", texture2);
 	chunk->setTexture("bot", texture3);
+	
 	engine->getModelsManager()->setModel("chunk", chunk);
+
+	Chunk2* chunk2 = new Chunk2();
+	chunk2->setProgram(program);
+	chunk2->create(16,0,2,16);
+	chunk2->setTexture("top", texture);
+	chunk2->setTexture("side", texture2);
+	chunk2->setTexture("bot", texture3);
+	engine->getModelsManager()->setModel("chunk2", chunk2);
+
+	std::vector<glm::vec3> worlds = chunk->getWorld();
+	for(int i=0;i< chunk2->getWorld().size();i++)
+		worlds.push_back(chunk2->getWorld()[i]);
+	engine->setWorld(worlds);
+
+
+
 	
 	
 	/*
@@ -87,6 +104,7 @@ int main(int argc, char **argv)
 
 	//engine->getModelsManager()->setModel("cube", cube);
 	//engine->getModelsManager()->setModel("cube2", cube2);
+
 	glDisable(GL_CULL_FACE);
 	engine->run();
 

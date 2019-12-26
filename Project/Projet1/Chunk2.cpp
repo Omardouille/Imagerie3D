@@ -12,34 +12,27 @@ Chunk2::~Chunk2()
 {
 }
 
-void Chunk2::create(int taille, MEngine* engine) {
+void Chunk2::create(int taille,int x,int y, int z) {
 	this->taille = taille;
 	std::vector<unsigned int> indices;
 	int k = 0;
-	for (int i = 0; i < taille; i++) {
-		for (int j = 0; j < taille; j++) {
+	for (int i = x; i < taille + x; i++) {
+		for (int j = z; j < taille + z; j++) {
+			world.push_back(glm::vec3(i*2, y, j*2));
 			//for (int k = 0; k < taille; k++) {
 			Cube2* cube = new Cube2();
 			//cube->setProgram(program);
-			if (i > 0 && i < taille - 1) {
-				if (j > 0 && j < taille - 1) {
-					cube->create(i * 2, 0, j * 2, false, false, false, false, false, true, false);
+			if (i > x && i < taille + x - 1) {
+				if (j > z && j < taille + z - 1) {
+					cube->create(i * 2, y, j * 2, false, false, false, false, false, true, false);
 				}
 				else {
-					cube->create(i * 2, 0, j * 2, false, true, true, true, true, true, false);
+					cube->create(i * 2, y, j * 2, false, true, true, true, true, true, false);
 				}
 			}
 			else {
-				cube->create(i * 2, 0, j * 2, false, true, true, true, true, true, false);
+				cube->create(i * 2, y, j * 2, false, true, true, true, true, true, false);
 			}
-			//cube->create(i * 2, 0, j * 2, false, true);
-			//cube->setTexture("top", texture);
-			//cube->setTexture("side", texture2);
-			//cube->setTexture("bot", texture3);
-			//std::string name = "cube" + std::to_string(i) + "," + std::to_string(j);
-			//engine->getModelsManager()->setModel(name, cube);
-			//this->listCubes.push_back(cube);
-			//}
 
 			this->vertices.insert(std::end(this->vertices), std::begin(cube->vertices), std::end(cube->vertices));
 			int tmp = k;
@@ -133,4 +126,9 @@ void Chunk2::draw(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix
 	glUniformMatrix4fv(glGetUniformLocation(program, "projection_matrix"), 1, false, &projectionMatrix[0][0]);
 
 	glDrawElements(GL_TRIANGLES, 36*taille*taille, GL_UNSIGNED_INT, 0);
+}
+
+std::vector<glm::vec3> Chunk2::getWorld()
+{
+	return world;
 }

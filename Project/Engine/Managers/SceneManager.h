@@ -4,6 +4,7 @@
 #include "../Core/Init/InitGLUT.h"
 #include "../Core/Init/IListerner.h"
 #include "../Rendering/Camera.h"
+#include "../Interaction/Collision.h"
 namespace Engine {
 	namespace Managers {
 		class SceneManager : public Core::IListener
@@ -18,6 +19,7 @@ namespace Engine {
 			virtual void notifyReshape(int width, int height, int previous_width, int previous_height);
 
 			Camera* getCamera() const;
+			void setWorld(std::vector<glm::vec3> w);
 
 			void setModelsManager(Managers::ModelsManager*& models_manager);
 			void setViewMatrix(glm::mat4 viewMatrix);
@@ -27,6 +29,8 @@ namespace Engine {
 			glm::mat4 projectionMatrix;
 			glm::mat4 viewMatrix;
 			Camera* m_camera;
+			Interaction::Collision* m_collision;
+			std::vector<glm::vec3> m_world;
 		};
 	}
 }
