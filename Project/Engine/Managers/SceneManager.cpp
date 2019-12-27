@@ -29,7 +29,13 @@ void SceneManager::notifyBeginFrame()
 	viewMatrix = m_camera->getViewMatrix();
 	bool c = m_collision->detectCollision(m_camera->getCameraPos(), m_world);
 	m_camera->setCanMove(!c);
+	float y = getHeight(m_camera->getCameraPos().x, m_camera->getCameraPos().z);
+	m_camera->setHeight(y);
+	bool win = m_collision->AABBtoAABB(m_camera->getCameraPos(), goalPosition);
+	if (win)
+		std::cout << "win : " << win << std::endl;
 	m_camera->updateView();
+
 }
 
 void SceneManager::notifyDisplayFrame()
@@ -40,7 +46,7 @@ void SceneManager::notifyDisplayFrame()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	modelsManager->draw();
 	modelsManager->draw(projectionMatrix, viewMatrix);
-
+	
 }
 
 void SceneManager::notifyEndFrame()
@@ -59,6 +65,24 @@ void SceneManager::notifyReshape(int width,int height,int previous_width,int pre
 	projectionMatrix[3][2] = 2.0f * near1 * far1 / (near1 - far1);
 }
 
+float Engine::Managers::SceneManager::getHeight(float x, float z)
+{
+	float y = -1;
+	bool find = false;
+	int i = 0;
+	int xRound = round(x / 2) * 2;
+	int zRound = round(z / 2) * 2;
+	while (!find && i<m_world.size()) {
+		if ((int)m_world[i].x == xRound && (int)m_world[i].z == zRound) {
+			find = true;
+			y = (int)m_world[i].y;
+		}
+		i++;
+	}
+	
+	return y;
+}
+
 Camera * Engine::Managers::SceneManager::getCamera() const
 {
 	return m_camera;
@@ -67,6 +91,11 @@ Camera * Engine::Managers::SceneManager::getCamera() const
 void Engine::Managers::SceneManager::setWorld(std::vector<glm::vec3> w)
 {
 	m_world = w;
+}
+
+void Engine::Managers::SceneManager::setGoalPosition(glm::vec3 position)
+{
+	goalPosition = position;
 }
 
 void SceneManager::setModelsManager(Managers::ModelsManager*& models_m)

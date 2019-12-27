@@ -21,6 +21,10 @@ Camera::Camera()
 	cameraPos = glm::vec3(0.0f, 4.0f, 0.0f);
 	canMove = true;
 	oldCameraPos = cameraPos;
+	velocity = 0.0f;
+	canJump = true;
+	height = cameraPos.y;
+	speed = 0.12f;
 	updateView();
 }
 
@@ -66,6 +70,17 @@ void Camera::updateView()
 	glm::mat4 translate = glm::mat4(1.0f);
 	if(!canMove)//collision
 		cameraPos = oldCameraPos;
+
+	//gavity
+	velocity += gravity * 0.01f;
+	cameraPos.y += velocity;
+	/*if (velocity < 0.0f)
+		velocity = 0.0f;*/
+	if (cameraPos.y < height) {
+		cameraPos.y = height;
+		canJump = true;
+	}
+	handleKeys();
 	translate = glm::translate(translate, -cameraPos);
 	
 	viewMatrix = rotate * translate;
@@ -85,35 +100,68 @@ glm::vec3 Camera::getCameraPos() const
 
 void Camera::KeyPressed(const unsigned char key)
 {
-	
+	if (key == 'z')
+		keyarr['z'] = PUSHED;
+	if (key == 's')
+		keyarr['s'] = PUSHED;
+	if (key == 'q')
+		keyarr['q'] = PUSHED;
+	if (key == 'd')
+		keyarr['d'] = PUSHED;
+	if (key == ' ')
+		keyarr[' '] = PUSHED;
+}
+
+void Engine::Rendering::Camera::KeyUped(const unsigned char key)
+{
+	if (key == 'z')
+		keyarr['z'] = NOTPUSHED;
+	if (key == 's')
+		keyarr['s'] = NOTPUSHED;
+	if (key == 'q')
+		keyarr['q'] = NOTPUSHED;
+	if (key == 'd')
+		keyarr['d'] = NOTPUSHED;
+	if (key == ' ')
+		keyarr[' '] = NOTPUSHED;
+}
+
+void Engine::Rendering::Camera::KeySpec(int key)
+{
+}
+
+void Engine::Rendering::Camera::KeyUpSpec(int key)
+{
+}
+
+void Engine::Rendering::Camera::handleKeys()
+{
 	float dx = 0; //how much we strafe on x
 	float dz = 0; //how much we walk on z
-	switch (key)
-	{
-	case 'z':
+	if (keyarr['z'] == PUSHED)
 	{
 		dz = 2;
-		break;
 	}
 
-	case 's':
+	if (keyarr['s'] == PUSHED)
 	{
 		dz = -2;
-		break;
 	}
-	case 'q':
+	if (keyarr['q'] == PUSHED)
 	{
 		dx = -2;
-		break;
 	}
 
-	case 'd':
+	if (keyarr['d'] == PUSHED)
 	{
 		dx = 2;
-		break;
 	}
-	default:
-		break;
+	if (keyarr[' '] == PUSHED)//space
+	{
+		if (canJump) {
+			velocity = 1.0f;
+			canJump = false;
+		}
 	}
 
 	//get current view matrix,
@@ -122,13 +170,11 @@ void Camera::KeyPressed(const unsigned char key)
 	glm::vec3 forward(mat[0][2], mat[1][2], mat[2][2]);
 	glm::vec3 strafe(mat[0][0], mat[1][0], mat[2][0]);
 
-	
+
 	float oldY = cameraPos.y;
 	oldCameraPos = cameraPos;
-	
 
-	float speed = 0.12f;//how fast we move
-	
+
 	if (canMove) {
 		cameraPos += (dz * forward + dx * strafe) * speed;
 		cameraPos.y = oldY;
@@ -136,13 +182,10 @@ void Camera::KeyPressed(const unsigned char key)
 	else {
 		//if ground
 		//cameraPos.y += speed;
-		
+
 	}
-	
-	//update the view matrix
-	updateView();
-	
 }
+
 
 void Camera::MouseMove(int x, int y, int width, int height)
 {
@@ -167,7 +210,6 @@ void Camera::MouseMove(int x, int y, int width, int height)
 		pitch = -1.55334f;
 
 	mousePosition = glm::vec2(x, y);
-	updateView();
 }
 
 void Camera::MousePressed(int button, int state, int x, int y)
@@ -194,3 +236,9 @@ void Engine::Rendering::Camera::setPosition(float x, float y, float z)
 {
 	cameraPos = glm::vec3(x, y, z);
 }
+
+void Engine::Rendering::Camera::setHeight(int y)
+{
+	height = y + 4;
+}
+

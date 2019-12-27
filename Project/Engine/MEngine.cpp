@@ -47,6 +47,7 @@ bool MEngine::init()
 void MEngine::run()
 {
 	m_scene_manager->setWorld(world);
+	m_scene_manager->setGoalPosition(goalPosition);
 	Init::InitGLUT::run();
 	
 }
@@ -74,6 +75,11 @@ TextureLoader* MEngine::getTextureLoader() const
 void Engine::MEngine::setWorld(std::vector<glm::vec3> w)
 {
 	world = w;
+}
+
+void Engine::MEngine::setGoalPosition(glm::vec3 position)
+{
+	goalPosition = position;
 }
 
 MEngine::~MEngine()

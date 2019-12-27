@@ -17,9 +17,11 @@ namespace Engine {
 			virtual void notifyDisplayFrame();
 			virtual void notifyEndFrame();
 			virtual void notifyReshape(int width, int height, int previous_width, int previous_height);
+			float getHeight(float x, float z);
 
 			Camera* getCamera() const;
 			void setWorld(std::vector<glm::vec3> w);
+			void setGoalPosition(glm::vec3 position);
 
 			void setModelsManager(Managers::ModelsManager*& models_manager);
 			void setViewMatrix(glm::mat4 viewMatrix);
@@ -31,6 +33,7 @@ namespace Engine {
 			Camera* m_camera;
 			Interaction::Collision* m_collision;
 			std::vector<glm::vec3> m_world;
+			glm::vec3 goalPosition;
 		};
 	}
 }

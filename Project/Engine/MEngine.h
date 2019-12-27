@@ -27,6 +27,7 @@ namespace Engine
 		TextureLoader* getTextureLoader() const;
 
 		void setWorld(std::vector<glm::vec3>);
+		void setGoalPosition(glm::vec3 position);
 
 	private:
 		Managers::SceneManager* m_scene_manager;
@@ -35,6 +36,7 @@ namespace Engine
 
 		TextureLoader* m_texture_loader;
 		std::vector<glm::vec3> world;
+		glm::vec3 goalPosition;
 		
 	};
 }

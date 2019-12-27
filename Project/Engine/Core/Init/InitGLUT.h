@@ -31,8 +31,12 @@ namespace Engine {
 				static void reshapeCallback(int width, int height);
 				static void closeCallback();
 				static void keyboardCallback(unsigned char key, int x, int y);
+				static void keyboardUpCallback(unsigned char key, int x, int y);
 				static void mousePressedCallback(int button, int state, int x, int y);
 				static void mouseMovedCallback(int x, int y);
+
+				static void specialCallback(int key, int x, int y);
+				static void specialUpCallback(int key, int x, int y);
 			};
 
 		}
