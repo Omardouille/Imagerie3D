@@ -1,9 +1,7 @@
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\engine.pdb
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\engine.idb
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\textureloader.obj
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\triangle.obj
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\model.obj
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\quad.obj
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\camera.obj
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\modelsmanager.obj
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\scenemanager.obj
@@ -13,14 +11,6 @@ d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\initglut.o
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\initglew.obj
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\collision.obj
 d:\users\benji\documents\cours\m2\imagerie3d\project\x64\debug\engine.lib
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\block.obj
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\chunk.obj
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\cube.obj
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\gamemodels.obj
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\main.obj
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\model.obj.enc
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\vc141.idb
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\vc141.pdb
 d:\users\benji\documents\cours\m2\imagerie3d\project\x64\debug\engine.pdb
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\engine.tlog\cl.command.1.tlog
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\engine.tlog\cl.read.1.tlog

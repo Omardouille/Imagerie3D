@@ -17,9 +17,10 @@ namespace Engine {
 			virtual void notifyDisplayFrame();
 			virtual void notifyEndFrame();
 			virtual void notifyReshape(int width, int height, int previous_width, int previous_height);
-			float getHeight(float x, float z);
+			float getHeight(float x, float y, float z);
 
 			Camera* getCamera() const;
+			std::vector<glm::vec3> getWorld();
 			void setWorld(std::vector<glm::vec3> w);
 			void setGoalPosition(glm::vec3 position);
 

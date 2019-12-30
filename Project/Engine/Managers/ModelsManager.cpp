@@ -5,23 +5,6 @@ using namespace Rendering;
 
 ModelsManager::ModelsManager()
 {
-	//triangle game object
-	/*
-	Models::Triangle* triangle = new Models::Triangle();
-	triangle->SetProgram(ShaderManager::GetShader("colorShader"));
-	triangle->Create();
-	gameModelList["triangle"] = triangle;
-
-	Models::Quad* quad = new Models::Quad();
-	quad->SetProgram(ShaderManager::GetShader("colorShader"));
-	quad->Create();
-	gameModelList["quad"] = quad;
-	
-	Models::Cube* cube = new Models::Cube();
-	cube->SetProgram(ShaderManager::GetShader("colorShader"));
-	cube->Create();
-	gameModelList["cube"] = cube;
-	*/
 }
 
 ModelsManager::~ModelsManager()
@@ -45,6 +28,11 @@ void ModelsManager::deleteModel(const std::string& gameModelName)
 const IGameObject& ModelsManager::getModel(const std::string& gameModelName) const
 {
 	return (*gameModelList.at(gameModelName));
+}
+
+const std::map<std::string, IGameObject*> Engine::Managers::ModelsManager::getAllModel() const
+{
+	return gameModelList;
 }
 
 void Engine::Managers::ModelsManager::setModel(const std::string & gameModelName, IGameObject* gameObject)

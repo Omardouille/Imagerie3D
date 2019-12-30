@@ -7,7 +7,7 @@ namespace Engine {
 		struct FramebufferInfo {
 
 			unsigned int flags;
-			bool msaa;//to enable or disable it when wee need it
+			bool msaa;//to enable or disable it when we need it
 
 			FramebufferInfo()
 			{
@@ -29,8 +29,6 @@ namespace Engine {
 					flags |= GLUT_MULTISAMPLE;
 				this->msaa = msaa;
 			}
-
-			//(optional)implement copy constructor and assignment operator
 		};
 	}
 }

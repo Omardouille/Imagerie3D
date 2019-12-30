@@ -9,6 +9,7 @@ void InitGLEW::Init() {
 	glewExperimental = true;
 	if (glewInit() == GLEW_OK)
 	{
+		glDisable(GL_CULL_FACE);
 		std::cout << "GLEW: Initialize" << std::endl;
 	}
 

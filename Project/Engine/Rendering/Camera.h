@@ -25,6 +25,8 @@ namespace Engine {
 			void setCanMove(bool b);
 			void setPosition(float x, float y, float z);
 			void setHeight(int y);
+
+			bool canJump2;
 			
 		private:
 			float roll, pitch, yaw;

@@ -24,6 +24,11 @@ namespace Engine {
 
 			virtual void setTexture(std::string textureName, GLuint texture) = 0;
 			virtual const GLuint getTexture(std::string textureName) const = 0;
+
+			std::vector<glm::vec3> world;
+			glm::vec3 position;
+			bool active;
+			
 		};
 
 		inline IGameObject::~IGameObject()

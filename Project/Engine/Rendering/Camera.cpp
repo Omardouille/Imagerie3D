@@ -18,11 +18,12 @@ Camera::Camera()
 		0.0f, 1.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, -1.0f, 0.0f,
 		0.0f, 0.0f, 10.0f, 1.0f);*/
-	cameraPos = glm::vec3(0.0f, 4.0f, 0.0f);
+	cameraPos = glm::vec3(0.0f, 40.0f, 0.0f);
 	canMove = true;
 	oldCameraPos = cameraPos;
 	velocity = 0.0f;
 	canJump = true;
+	canJump2 = true;
 	height = cameraPos.y;
 	speed = 0.12f;
 	updateView();
@@ -56,7 +57,7 @@ void Camera::updateView()
 
 	if(yaw > 6.0f || yaw < -6.0f)
 		yaw = 0.0f;
-	std::string c = cardinal(yaw);
+	//std::string c = cardinal(yaw);
 	//float degrees = yaw * (180.0 / 3.141592653589793238463);
 	//std::cout << "yaw: " << degrees << " c : " << c << std::endl;
 
@@ -74,9 +75,7 @@ void Camera::updateView()
 	//gavity
 	velocity += gravity * 0.01f;
 	cameraPos.y += velocity;
-	/*if (velocity < 0.0f)
-		velocity = 0.0f;*/
-	if (cameraPos.y < height) {
+	if (cameraPos.y < height && canJump2) {
 		cameraPos.y = height;
 		canJump = true;
 	}
@@ -110,6 +109,8 @@ void Camera::KeyPressed(const unsigned char key)
 		keyarr['d'] = PUSHED;
 	if (key == ' ')
 		keyarr[' '] = PUSHED;
+	if(key == 'r')
+		cameraPos = glm::vec3(0.0f, 4.0f, 0.0f);
 }
 
 void Engine::Rendering::Camera::KeyUped(const unsigned char key)
@@ -181,7 +182,6 @@ void Engine::Rendering::Camera::handleKeys()
 	}
 	else {
 		//if ground
-		//cameraPos.y += speed;
 
 	}
 }

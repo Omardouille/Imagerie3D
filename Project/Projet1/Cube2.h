@@ -18,7 +18,6 @@ public:
 	std::vector<Engine::Rendering::VertexFormat> vertices;
 private:
 	
-	glm::vec3 position;
 	glm::vec3 rotation, rotation_speed;
 	glm::vec3 rotation_sin;
 	time_t timer;

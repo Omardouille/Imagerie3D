@@ -5,7 +5,7 @@ using namespace Interaction;
 
 bool Engine::Interaction::Collision::AABBtoAABB(const glm::vec3 & tBox1, const glm::vec3 & tBox2)
 {
-	float size = 1.0f;//taille
+	float size = 1.0f;//size
 	float sizeP = 0.5f;//largeur
 	float sizeH = 3.0f;//hauteur
 	return(tBox1.x + sizeP > tBox2.x - size &&

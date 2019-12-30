@@ -11,6 +11,7 @@ namespace Engine
 
 	public:
 		MEngine();
+		MEngine(std::string name);
 		~MEngine();
 
 		//OpenGL and manager init
@@ -24,8 +25,7 @@ namespace Engine
 		Managers::ShaderManager* getShaderManager() const;
 		Managers::ModelsManager* getModelsManager() const;
 
-		TextureLoader* getTextureLoader() const;
-
+		//Setters
 		void setWorld(std::vector<glm::vec3>);
 		void setGoalPosition(glm::vec3 position);
 
@@ -34,7 +34,7 @@ namespace Engine
 		Managers::ShaderManager* m_shader_manager;
 		Managers::ModelsManager* m_models_manager;
 
-		TextureLoader* m_texture_loader;
+		std::string windowName;
 		std::vector<glm::vec3> world;
 		glm::vec3 goalPosition;
 		

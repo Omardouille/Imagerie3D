@@ -40,6 +40,7 @@ void InitGLUT::init(const Core::WindowInfo& windowInfo,
 	glutCloseFunc(closeCallback);
 	glutDisplayFunc(displayCallback);
 	glutReshapeFunc(reshapeCallback);
+	////these callbacks are used for key listening
 	glutKeyboardFunc(keyboardCallback);
 	glutKeyboardUpFunc(keyboardUpCallback);
 	glutMouseFunc(mousePressedCallback);
@@ -48,13 +49,13 @@ void InitGLUT::init(const Core::WindowInfo& windowInfo,
 	glutSpecialFunc(specialCallback);
 	glutSpecialUpFunc(specialUpCallback);
 
-	//init GLEW, this can be called in main.cpp
+	//init GLEW
 	Init::InitGLEW::Init();
 
 	//cleanup
 	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
 
-	//our method to display some info. Needs contextInfo and windowinfo
+	//Method to display some info.
 	printOpenGLInfo(windowInfo, contextInfo);
 	
 }
@@ -74,8 +75,6 @@ void InitGLUT::close()
 
 void InitGLUT::idleCallback(void)
 {
-	//update
-
 	glutPostRedisplay();
 }
 
@@ -116,10 +115,6 @@ void InitGLUT::closeCallback()
 
 void InitGLUT::keyboardCallback(unsigned char key, int x, int y)
 {
-	
-	//printf("vous avez appuyé sur %c ", key);
-	/*printf("position de la souris : ");
-	printf("%d,%d \n", x, y);*/
 	if (camera) {
 		camera->KeyPressed(key);
 	}
@@ -148,7 +143,6 @@ void Engine::Core::Init::InitGLUT::mouseMovedCallback(int x, int y)
 
 void Engine::Core::Init::InitGLUT::specialCallback(int key, int x, int y)
 {
-	//printf("vous avez appuyé sur %i ", key);
 	if (camera) {
 		camera->KeySpec(key);
 	}

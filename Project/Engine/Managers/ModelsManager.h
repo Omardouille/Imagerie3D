@@ -2,9 +2,6 @@
 #include <map>
 #include "ShaderManager.h"
 #include "../Rendering/IGameObject.h"
-#include "../Rendering/Models/Triangle.h"
-#include "../Rendering/Models/Quad.h"
-//#include "../Rendering/Models/Cube.h"
 
 
 namespace Engine {
@@ -22,6 +19,7 @@ namespace Engine {
 			void update();
 			void deleteModel(const std::string& gameModelName);
 			const IGameObject& getModel(const std::string& gameModelName) const;
+			const std::map<std::string, IGameObject*> getAllModel() const;
 			void setModel(const std::string& gameModelName, IGameObject* gameObject);
 
 		private:

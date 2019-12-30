@@ -13,7 +13,7 @@ namespace Engine {
 
 			WindowInfo()
 			{
-				name = "OpenGL window";
+				name = "OpenGL Window";
 				width = 800; height = 600;
 				position_x = 300;
 				position_y = 300;

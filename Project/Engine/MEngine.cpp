@@ -4,14 +4,19 @@ using namespace Core;
 
 MEngine::MEngine()
 {
+	windowName = std::string("OpenGL Window");
+}
 
+MEngine::MEngine(std::string name)
+{
+	windowName = name;
 }
 
 
 //You can set params for init
 bool MEngine::init()
 {
-	WindowInfo window(std::string("OpenGL Window"),
+	WindowInfo window(windowName,
 		400, 200,
 		800, 600, true);
 	ContextInfo context(4, 5, true);
@@ -23,12 +28,7 @@ bool MEngine::init()
 
 	Init::InitGLUT::setListener(m_scene_manager);
 
-
-	//this was created in  scene manager constructor, now copy here
 	m_shader_manager = new Managers::ShaderManager();
-	//m_shader_manager->createProgram("colorShader",		"..\\Engine\\Shaders\\VertexShader.glsl",		"..\\Engine\\Shaders\\FragmentShader.glsl");
-
-	m_texture_loader = new TextureLoader();
 
 	if (m_scene_manager && m_shader_manager)
 	{
@@ -46,10 +46,8 @@ bool MEngine::init()
 //Create the loop
 void MEngine::run()
 {
-	m_scene_manager->setWorld(world);
 	m_scene_manager->setGoalPosition(goalPosition);
 	Init::InitGLUT::run();
-	
 }
 
 Managers::SceneManager* MEngine::getSceneManager() const
@@ -67,10 +65,6 @@ Managers::ModelsManager* MEngine::getModelsManager() const
 	return m_models_manager;
 }
 
-TextureLoader* MEngine::getTextureLoader() const
-{
-	return m_texture_loader;
-}
 
 void Engine::MEngine::setWorld(std::vector<glm::vec3> w)
 {
@@ -92,7 +86,4 @@ MEngine::~MEngine()
 
 	if (m_models_manager)
 		delete m_models_manager;
-
-	if (m_texture_loader)
-		delete m_texture_loader;
 }
