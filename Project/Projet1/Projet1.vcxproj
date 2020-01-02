@@ -136,6 +136,7 @@
     <ClInclude Include="Goal.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="PerlinNoise.hpp" />
+    <ClInclude Include="Skybox.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
@@ -147,10 +148,13 @@
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Skybox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\FragmentShader.glsl" />
+    <None Include="Shaders\fragment_shader_skybox.glsl" />
     <None Include="Shaders\VertexShader.glsl" />
+    <None Include="Shaders\vertex_shader_skybox.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Textures\Crate.bmp" />

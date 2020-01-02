@@ -4,6 +4,7 @@
 #include <soil/SOIL2.h>
 #include "GenerateMap.h"
 #include "Goal.h"
+#include "Skybox.h"
 #include <time.h>
 #include <string>
 
@@ -15,20 +16,21 @@ int main(int argc, char **argv)
 	MEngine* engine = new MEngine("Voxel Game");
 	engine->init();
 
-	//local shaders
+	//shaders
 	engine->getShaderManager()->createProgram("cubeShader",	"Shaders\\VertexShader.glsl", "Shaders\\FragmentShader.glsl");
+	engine->getShaderManager()->createProgram("skyboxShader", "Shaders\\vertex_shader_skybox.glsl", "Shaders\\fragment_shader_skybox.glsl");
 	unsigned int goalT = SOIL_load_OGL_texture("Textures\\Crate.bmp", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
 
 	int program = engine->getShaderManager()->getShader("cubeShader");
-	if (program != 0) {
+	int skyboxProgram = engine->getShaderManager()->getShader("skyboxShader");
+	if (program != 0 && skyboxProgram!=0) {
 
-		Goal* goal = new Goal();
-		goal->setProgram(program);
-		goal->create(5, 4, 5);
-		goal->setTexture("goal", goalT);
-		engine->getModelsManager()->setModel("Goal", goal);
-		engine->setGoalPosition(goal->getPosition());
-
+		//Generation skybox
+		Skybox* skybox = new Skybox();
+		skybox->setProgram(skyboxProgram);
+		engine->getModelsManager()->setModel("skybox", skybox);
+		
+		//Generation world
 		GenerateMap* geneMap = new GenerateMap(program, 4);
 		std::vector<Chunk2*> chunks = geneMap->chunks;
 		int i = 0;
@@ -37,7 +39,17 @@ int main(int argc, char **argv)
 			engine->getModelsManager()->setModel(name, c);
 			i++;
 		}
+		//Generation goal
+		Goal* goal = new Goal();
+		goal->setProgram(program);
+		goal->create(5, 4, 5);
+		goal->setTexture("goal", goalT);
+		engine->getModelsManager()->setModel("Goal", goal);
+		engine->setGoalPosition(goal->getPosition());
 		std::cout << "Press Space to jump, ZQSD for move and R to reset position" << std::endl;
+
+		
+
 		engine->run();
 	}
 	else {

@@ -29,7 +29,6 @@ GenerateMap::GenerateMap(int program, int size)
 		chunk2->setTexture("bot", texture3);
 		chunks.push_back(chunk2);
 	}
-
 }
 
 GenerateMap::~GenerateMap()
