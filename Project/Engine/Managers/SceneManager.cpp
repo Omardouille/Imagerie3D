@@ -44,8 +44,11 @@ void SceneManager::notifyBeginFrame()
 	float y = getHeight(m_camera->getCameraPos().x, m_camera->getCameraPos().y, m_camera->getCameraPos().z);
 	m_camera->setHeight(y);
 	bool win = m_collision->AABBtoAABB(m_camera->getCameraPos(), goalPosition);
-	if (win)
-		std::cout << "win : " << win << std::endl;
+	if (win) {
+		std::cout << "Vous avez gagné !" << std::endl;
+		Sleep(3000);
+		glutDestroyWindow(glutGetWindow());
+	}
 	m_camera->updateView();
 
 }

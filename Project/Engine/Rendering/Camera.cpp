@@ -83,7 +83,7 @@ void Camera::updateView()
 	translate = glm::translate(translate, -cameraPos);
 	
 	viewMatrix = rotate * translate;
-
+	//std::cout <<  " y: " << cameraPos.y << " oldy: " << oldCameraPos.y << std::endl;
 	//std::cout << "x: " << cameraPos.x << " y: " << cameraPos.y << " z: " << cameraPos.z << " old " << "x: " << oldCameraPos.x << " y: " << oldCameraPos.y << " z: " << oldCameraPos.z << std::endl;
 }
 
@@ -181,7 +181,7 @@ void Engine::Rendering::Camera::handleKeys()
 		cameraPos.y = oldY;
 	}
 	else {
-		//if ground
+			
 
 	}
 }

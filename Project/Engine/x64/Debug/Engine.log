@@ -1,34 +1,9 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: Le répertoire intermédiaire (x64\Debug\) contient des fichiers partagés provenant d'un autre projet (Project.vcxproj). Cela peut entraîner un comportement de nettoyage et de régénération incorrect.
-  Collision.cpp
-  InitGLEW.cpp
-  InitGLUT.cpp
-  MEngine.cpp
-  ShaderManager.cpp
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\managers\shadermanager.cpp(48): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\managers\shadermanager.cpp(48): warning C4267: 'initialisation' : conversion de 'size_t' en 'const int', perte possible de données
   SceneManager.cpp
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\managers\scenemanager.cpp(45): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\managers\scenemanager.cpp(86): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\managers\scenemanager.cpp(87): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\managers\scenemanager.cpp(91): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-  ModelsManager.cpp
-  Camera.cpp
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\rendering\camera.cpp(38): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\rendering\camera.cpp(225): warning C4244: '=' : conversion de 'int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\rendering\camera.cpp(226): warning C4244: '=' : conversion de 'int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\rendering\camera.cpp(242): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-  Model.cpp
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\rendering\models\model.cpp(47): warning C4267: 'argument' : conversion de 'size_t' en 'GLsizei', perte possible de données
-  TextureLoader.cpp
-  Génération de code en cours...
+d:\users\benji\documents\cours\m2\imagerie3d\project\engine\managers\scenemanager.cpp(89): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+d:\users\benji\documents\cours\m2\imagerie3d\project\engine\managers\scenemanager.cpp(90): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+d:\users\benji\documents\cours\m2\imagerie3d\project\engine\managers\scenemanager.cpp(94): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
 freeglut.lib(freeglutd.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR dÚjÓ dÚfini dans opengl32.lib(OPENGL32.dll)á; seconde dÚfinition ignorÚe
 freeglut.lib(freeglutd.dll) : warning LNK4221: Ce fichier objet ne dÚfinit pas de symboles publics jusqu'ici non dÚfinis. Par consÚquent, il ne sera utilisÚ par aucune opÚration de lien utilisant cette bibliothÞque
 glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR dÚjÓ dÚfini dans opengl32.lib(OPENGL32.dll)á; seconde dÚfinition ignorÚe

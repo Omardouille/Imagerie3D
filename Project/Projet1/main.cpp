@@ -31,7 +31,8 @@ int main(int argc, char **argv)
 		engine->getModelsManager()->setModel("skybox", skybox);
 		
 		//Generation world
-		GenerateMap* geneMap = new GenerateMap(program, 4);
+		int sizeWorld = 4;
+		GenerateMap* geneMap = new GenerateMap(program, sizeWorld);
 		std::vector<Chunk2*> chunks = geneMap->chunks;
 		int i = 0;
 		for (Chunk2* c : chunks) {
@@ -40,16 +41,17 @@ int main(int argc, char **argv)
 			i++;
 		}
 		//Generation goal
+		int xGoal = (rand() % (sizeWorld * 16)) + 1;
+		int zGoal = (rand() % (sizeWorld * 16)) + 1;
 		Goal* goal = new Goal();
 		goal->setProgram(program);
-		goal->create(5, 4, 5);
+		goal->create(xGoal, 10, zGoal);
 		goal->setTexture("goal", goalT);
 		engine->getModelsManager()->setModel("Goal", goal);
 		engine->setGoalPosition(goal->getPosition());
+
+
 		std::cout << "Press Space to jump, ZQSD for move and R to reset position" << std::endl;
-
-		
-
 		engine->run();
 	}
 	else {

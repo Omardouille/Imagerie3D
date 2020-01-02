@@ -2,6 +2,7 @@
 #include "Map.h"
 #include "Chunk.h"
 #include "Chunk2.h"
+#include "Goal.h"
 class GenerateMap
 {
 public:
@@ -10,6 +11,5 @@ public:
 
 	Map* map;
 	std::vector<Chunk2*> chunks;
-
 };
 
