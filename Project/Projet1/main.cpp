@@ -1,6 +1,5 @@
 #pragma once
 #include <Engine\MEngine.h>
-#include "Cube.h"
 #include <soil/SOIL2.h>
 #include "GenerateMap.h"
 #include "Goal.h"
@@ -24,22 +23,25 @@ int main(int argc, char **argv)
 	int program = engine->getShaderManager()->getShader("cubeShader");
 	int skyboxProgram = engine->getShaderManager()->getShader("skyboxShader");
 	if (program != 0 && skyboxProgram!=0) {
-
-		//Generation skybox
-		Skybox* skybox = new Skybox();
-		skybox->setProgram(skyboxProgram);
-		engine->getModelsManager()->setModel("skybox", skybox);
+		std::cout << "Press Space to jump, ZQSD for move and R to reset position" << std::endl;
+		
 		
 		//Generation world
-		int sizeWorld = 4;
+		int sizeWorld = 5;
 		GenerateMap* geneMap = new GenerateMap(program, sizeWorld);
-		std::vector<Chunk2*> chunks = geneMap->chunks;
+		std::vector<ChunkRenderer*> chunks = geneMap->chunks;
 		int i = 0;
-		for (Chunk2* c : chunks) {
+		for (ChunkRenderer* c : chunks) {
 			std::string name = "chunk" + std::to_string(i);
 			engine->getModelsManager()->setModel(name, c);
 			i++;
 		}
+
+		//Generation skybox
+		Skybox* skybox = new Skybox(sizeWorld * 100);
+		skybox->setProgram(skyboxProgram);
+		engine->getModelsManager()->setModel("skybox", skybox);
+
 		//Generation goal
 		int xGoal = (rand() % (sizeWorld * 16)) + 1;
 		int zGoal = (rand() % (sizeWorld * 16)) + 1;
@@ -51,7 +53,7 @@ int main(int argc, char **argv)
 		engine->setGoalPosition(goal->getPosition());
 
 
-		std::cout << "Press Space to jump, ZQSD for move and R to reset position" << std::endl;
+		
 		engine->run();
 	}
 	else {

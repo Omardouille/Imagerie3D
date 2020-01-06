@@ -1,7 +1,6 @@
 #include "Skybox.h"
 #include "stb_image.h"
-Skybox::Skybox() {
-	float size = 100.0f;
+Skybox::Skybox(float size) {
 	float skyboxVertices[] = {
 		// positions          
 		-size,  size, -size,

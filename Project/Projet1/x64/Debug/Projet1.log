@@ -1,5 +1,1 @@
-﻿  GenerateMap.cpp
-  main.cpp
-d:\users\benji\documents\cours\m2\imagerie3d\project\projet1\main.cpp(15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Génération de code en cours...
-  Projet1.vcxproj -> D:\Users\Benji\Documents\cours\M2\Imagerie3D\Project\x64\Debug\Projet1.exe
+﻿  Projet1.vcxproj -> C:\Users\simps\Documents\cours\Imagerie3D\Projet\Nouveau dossier\x64\Debug\Projet1.exe

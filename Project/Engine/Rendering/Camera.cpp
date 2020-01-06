@@ -18,14 +18,14 @@ Camera::Camera()
 		0.0f, 1.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, -1.0f, 0.0f,
 		0.0f, 0.0f, 10.0f, 1.0f);*/
-	cameraPos = glm::vec3(0.0f, 40.0f, 0.0f);
+	cameraPos = glm::vec3(0.0f, 10.0f, 0.0f);
 	canMove = true;
 	oldCameraPos = cameraPos;
 	velocity = 0.0f;
 	canJump = true;
 	canJump2 = true;
 	height = cameraPos.y;
-	speed = 0.12f;
+	speed = 0.02f;
 	updateView();
 }
 
@@ -49,8 +49,6 @@ std::string cardinal(float yaw) {
 
 void Camera::updateView()
 {
-	
-	//roll can be removed from here. because is not actually used in FPS camera3
 	glm::mat4 matRoll = glm::mat4(1.0f);//identity matrix; 
 	glm::mat4 matPitch = glm::mat4(1.0f);//identity matrix
 	glm::mat4 matYaw = glm::mat4(1.0f);//identity matrix
@@ -58,22 +56,21 @@ void Camera::updateView()
 	if(yaw > 6.0f || yaw < -6.0f)
 		yaw = 0.0f;
 	//std::string c = cardinal(yaw);
-	//float degrees = yaw * (180.0 / 3.141592653589793238463);
 	//std::cout << "yaw: " << degrees << " c : " << c << std::endl;
 
-	//roll, pitch and yaw are used to store our angles in our class
 	matRoll = glm::rotate(matRoll, roll, glm::vec3(0.0f, 0.0f, 1.0f));
 	matPitch = glm::rotate(matPitch, pitch, glm::vec3(1.0f, 0.0f, 0.0f));
 	matYaw = glm::rotate(matYaw, yaw, glm::vec3(0.0f, 1.0f, 0.0f));
-	//order matters
+
 	glm::mat4 rotate = matRoll * matPitch * matYaw;
 
 	glm::mat4 translate = glm::mat4(1.0f);
+
 	if(!canMove)//collision
 		cameraPos = oldCameraPos;
 
 	//gavity
-	velocity += gravity * 0.01f;
+	velocity += gravity * 0.001f;
 	cameraPos.y += velocity;
 	if (cameraPos.y < height && canJump2) {
 		cameraPos.y = height;
@@ -83,8 +80,6 @@ void Camera::updateView()
 	translate = glm::translate(translate, -cameraPos);
 	
 	viewMatrix = rotate * translate;
-	//std::cout <<  " y: " << cameraPos.y << " oldy: " << oldCameraPos.y << std::endl;
-	//std::cout << "x: " << cameraPos.x << " y: " << cameraPos.y << " z: " << cameraPos.z << " old " << "x: " << oldCameraPos.x << " y: " << oldCameraPos.y << " z: " << oldCameraPos.z << std::endl;
 }
 
 glm::mat4 Camera::getViewMatrix() const
@@ -137,8 +132,8 @@ void Engine::Rendering::Camera::KeyUpSpec(int key)
 
 void Engine::Rendering::Camera::handleKeys()
 {
-	float dx = 0; //how much we strafe on x
-	float dz = 0; //how much we walk on z
+	float dx = 0;
+	float dz = 0;
 	if (keyarr['z'] == PUSHED)
 	{
 		dz = 2;
@@ -160,7 +155,7 @@ void Engine::Rendering::Camera::handleKeys()
 	if (keyarr[' '] == PUSHED)//space
 	{
 		if (canJump) {
-			velocity = 1.0f;
+			velocity = 0.4f;
 			canJump = false;
 		}
 	}
@@ -171,18 +166,12 @@ void Engine::Rendering::Camera::handleKeys()
 	glm::vec3 forward(mat[0][2], mat[1][2], mat[2][2]);
 	glm::vec3 strafe(mat[0][0], mat[1][0], mat[2][0]);
 
-
-	float oldY = cameraPos.y;
 	oldCameraPos = cameraPos;
 
 
 	if (canMove) {
 		cameraPos += (dz * forward + dx * strafe) * speed;
-		cameraPos.y = oldY;
-	}
-	else {
-			
-
+		cameraPos.y = oldCameraPos.y;
 	}
 }
 
@@ -192,15 +181,13 @@ void Camera::MouseMove(int x, int y, int width, int height)
 	
 	if (isMousePressed == false)
 		return;
-	//always compute delta
+
 	//mousePosition is the last mouse position
-	
 	glm::vec2 mouse_delta = mousePosition - glm::vec2(x, y) ;
 
 	const float mouseX_Sensitivity = 0.0020f;
 	const float mouseY_Sensitivity = 0.0020f;
-	//note that yaw and pitch must be converted to radians.
-	//this is done in UpdateView() by glm::rotate
+
 	yaw += mouseX_Sensitivity * mouse_delta.x;
 	pitch += mouseY_Sensitivity * mouse_delta.y;
 

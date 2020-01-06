@@ -1,7 +1,7 @@
 #pragma once
 #include "Map.h"
 #include "Chunk.h"
-#include "Chunk2.h"
+#include "ChunkRenderer.h"
 #include "Goal.h"
 class GenerateMap
 {
@@ -10,6 +10,6 @@ public:
 	~GenerateMap();
 
 	Map* map;
-	std::vector<Chunk2*> chunks;
+	std::vector<ChunkRenderer*> chunks;
 };
 

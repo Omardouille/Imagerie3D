@@ -5,11 +5,6 @@ using namespace Managers;
 SceneManager::SceneManager()
 {
 	glEnable(GL_DEPTH_TEST);
-	
-	/*viewMatrix = glm::mat4(1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, -1.0f, 0.0f,
-		0.0f, 0.0f, 10.0f, 1.0f);*/
 
 	m_camera = new Camera();
 	Engine::Core::Init::InitGLUT::setCamera(m_camera);
@@ -29,7 +24,7 @@ void SceneManager::notifyBeginFrame()
 	for (auto const& m : models)
 	{
 		glm::vec3 p = m.second->position;
-		if (std::sqrt(std::pow(camPos.x - p.x*2, 2) + std::pow(camPos.z - p.z*2, 2)) > 100) {//rendering view
+		if (std::sqrt(std::pow(camPos.x - p.x*2, 2) + std::pow(camPos.z - p.z*2, 2)) > 50) {//rendering view
 			m.second->active = false;
 		}
 		else {
@@ -45,12 +40,11 @@ void SceneManager::notifyBeginFrame()
 	m_camera->setHeight(y);
 	bool win = m_collision->AABBtoAABB(m_camera->getCameraPos(), goalPosition);
 	if (win) {
-		std::cout << "Vous avez gagné !" << std::endl;
+		std::cout << "Vous avez gagne !" << std::endl;
 		Sleep(3000);
 		glutDestroyWindow(glutGetWindow());
 	}
 	m_camera->updateView();
-
 }
 
 void SceneManager::notifyDisplayFrame()

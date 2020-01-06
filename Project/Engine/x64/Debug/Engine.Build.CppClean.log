@@ -11,10 +11,33 @@ d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\initglut.o
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\initglew.obj
 d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\collision.obj
 d:\users\benji\documents\cours\m2\imagerie3d\project\x64\debug\engine.lib
-d:\users\benji\documents\cours\m2\imagerie3d\project\x64\debug\engine.pdb
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\engine.tlog\cl.command.1.tlog
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\engine.tlog\cl.read.1.tlog
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\engine.tlog\cl.write.1.tlog
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\engine.tlog\lib-link.read.1.tlog
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\engine.tlog\lib-link.write.1.tlog
-d:\users\benji\documents\cours\m2\imagerie3d\project\engine\x64\debug\engine.tlog\lib.command.1.tlog
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\block.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\camera.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\chunk.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\collision.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\cube.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\gamemodels.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\initglew.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\initglut.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\main.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\mengine.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\model.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\modelsmanager.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\quad.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\scenemanager.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\shadermanager.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\textureloader.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\triangle.obj
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\model.obj.enc
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\engine.idb
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\vc141.idb
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\engine.pdb
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\vc141.pdb
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\x64\debug\engine.pdb
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\x64\debug\engine.lib
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\engine.tlog\cl.command.1.tlog
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\engine.tlog\cl.read.1.tlog
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\engine.tlog\cl.write.1.tlog
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\engine.tlog\lib-link.read.1.tlog
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\engine.tlog\lib-link.write.1.tlog
+c:\users\simps\documents\cours\imagerie3d\projet\nouveau dossier\engine\x64\debug\engine.tlog\lib.command.1.tlog

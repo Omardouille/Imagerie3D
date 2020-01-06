@@ -21,7 +21,7 @@ GenerateMap::GenerateMap(int program, int size)
 	for (auto const& c : allChunks)
 	{
 		Chunk* chunk = c.second;
-		Chunk2* chunk2 = new Chunk2();
+		ChunkRenderer* chunk2 = new ChunkRenderer();
 		chunk2->setProgram(program);
 		chunk2->create(chunk);
 		chunk2->setTexture("top", texture);

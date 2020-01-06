@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{48F0419F-36B0-4E55-873C-230478BAC0B1}</ProjectGuid>
     <RootNamespace>Projet1</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -126,24 +126,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Block.h" />
-    <ClInclude Include="BlockType.h" />
     <ClInclude Include="Chunk.h" />
-    <ClInclude Include="Chunk2.h" />
+    <ClInclude Include="ChunkRenderer.h" />
     <ClInclude Include="Cube.h" />
-    <ClInclude Include="Cube2.h" />
     <ClInclude Include="GenerateMap.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="PerlinNoise.hpp" />
     <ClInclude Include="Skybox.h" />
+    <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Block.cpp" />
     <ClCompile Include="Chunk.cpp" />
-    <ClCompile Include="Chunk2.cpp" />
+    <ClCompile Include="ChunkRenderer.cpp" />
     <ClCompile Include="Cube.cpp" />
-    <ClCompile Include="Cube2.cpp" />
     <ClCompile Include="GenerateMap.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="main.cpp" />

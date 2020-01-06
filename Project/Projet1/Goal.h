@@ -1,5 +1,5 @@
 #pragma once
-#include "Cube2.h"
+#include "Cube.h"
 #include <Engine/MEngine.h>
 using namespace Engine;
 class Goal : public Model
